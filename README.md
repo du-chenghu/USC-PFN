@@ -97,7 +97,7 @@ If our code is helpful to your work, please cite:
   title={Greatness in Simplicity: Unified Self-cycle Consistency for Parser-free Virtual Try-on},
   author={Du, Chenghu and Wang, Junyin and Liu, Shuqing and Xiong, Shengwu},
   journal={Advances in Neural Information Processing Systems},
-  publisher = {Curran Associates, Inc.}
+  publisher={Curran Associates, Inc.}
   pages={1--12},
   year={2023}
 }
