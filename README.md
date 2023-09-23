@@ -8,7 +8,7 @@
 <div>
     <a href="https://github.com/du-chenghu/USC-PFN" target="_blank">Chenghu Du</a><sup>1</sup>,
     <a href="https://github.com/du-chenghu/USC-PFN" target="_blank">Junyin Wang</a><sup>1</sup>,
-    <a href="https://github.com/du-chenghu/USC-PFN">Shuqing Liu</a><sup>4</sup>,
+    <a href="https://github.com/du-chenghu/USC-PFN" target="_blank">Shuqing Liu</a><sup>4</sup>,
     <a href="https://github.com/du-chenghu/USC-PFN" target="_blank">Shengwu Xiong</a><sup>1,2,3,*</sup>
 </div>
 
@@ -16,10 +16,10 @@
     <sup>1</sup>Wuhan University of Technology&emsp; <sup>2</sup>Sanya Science and Education Innovation Park
 </div>
 <div>
-    <sup>3</sup>Shanghai Artificial Intelligence Laboratory&emsp; <sup>4</sup>Wuhan Textile University
+    <sup>3</sup>Shanghai AI Laboratory&emsp; <sup>4</sup>Wuhan Textile University
 </div>
 
-[Paper](https://arxiv.org/pdf/00.pdf) | [Project Page](https://github.com/du-chenghu/USC-PFN)
+[Paper](https://arxiv.org/pdf/00.pdf) | [Supplementary Material](https://arxiv.org/pdf/00.pdf)
 </br>
 
 <strong>USC-PFN aims to transfer an in-shop garment onto a specific person.</strong>
@@ -36,32 +36,22 @@
 ## Citation
 If our code is helpful to your work, please cite:
 ```bibtex
-@article{du2023greatness,
-  title={Greatness in Simplicity: Unified Self-cycle Consistency for Parser-free Virtual Try-on},
+@inproceedings{du2023greatness,
+  title={Greatness in Simplicity: Unified Self-Cycle Consistency for Parser-Free Virtual Try-On},
   author={Du, Chenghu and Wang, Junyin and Liu, Shuqing and Xiong, Shengwu},
-  journal={Advances in Neural Information Processing Systems},
-  publisher={Curran Associates, Inc.}
-  pages={1--12},
+  booktitle={Thirty-seventh Conference on Neural Information Processing Systems},
   year={2023}
+  pages={1--12},
 }
 ```
 ---
 ## Todo
+**The `test code` has been released, the `training code` will be released soon.**
 - [ ] Release the ground truth of the garment parsing and human parsing for two public benchmarks (VITON-HD and DressesCode) used in the paper
 - [ ] Release the pretrained model and the inference script for VITON dataset.
 - [ ] Release the training script for VITON dataset.
 - [x] Release the training/testing scripts for 1024-resolution on VITON-HD and DressCode datasets.
 ---
-**The `test code` has been released, the `training code` will be released after the paper has been accepted.**
-
-[[Paper]](https://arxiv.org/abs/)       [[Supplementary Material]](https://github.com/)
-
-[[Checkpoints for Test]](https://drive.google.com)
-
-[[Training_Data]](https://drive.google.com/file/d/1Uc0DTTkSfCPXDhd4CMx2TQlzlC6bDolK/view?usp=sharing)
-[[Test_Data]](https://drive.google.com/file/d/1Y7uV0gomwWyxCvvH8TIbY7D9cTAUy6om/view?usp=sharing)
-
-[[VGG_Model]](https://drive.google.com/file/d/1Mw24L52FfOT9xXm3I1GL8btn7vttsHd9/view?usp=sharing)
 
 ## Our Environment
 - anaconda3
@@ -101,17 +91,17 @@ If our code is helpful to your work, please cite:
 - To test our saved model on the complete VITON test set, you can download [VITON_test](https://drive.google.com/file/d/1Y7uV0gomwWyxCvvH8TIbY7D9cTAUy6om/view?usp=sharing).
 
 ## Run the demo
+[[Checkpoints for Test]](https://drive.google.com)
 1. cd USC-PFN
 2. First, you need to download the checkpoints from [checkpoints](https://drive.google.com/file/d/1_a0AiN8Y_d_9TNDhHIcRlERz3zptyYWV/view?usp=sharing) and put the folder "USC-PFN" under the folder "checkpoints". The folder "checkpoints/USC-PFN" shold contain "warp_model_final.pth" and "gen_model_final.pth". 
 3. The "dataset" folder contains the demo images for test, where the "test_img" folder contains the person images, the "test_clothes" folder contains the clothes images, and the "test_edge" folder contains edges extracted from the clothes images with the built-in function in python (We saved the extracted edges from the clothes images for convenience). 'demo.txt' records the test pairs. 
 4. During test, a person image, a clothes image and its extracted edge are fed into the network to generate the try-on image. **No human parsing results or human pose estimation results are needed for test.**
 5. To test with the saved model, run **test.sh** and the results will be saved in the folder "results".
-6. **To reproduce our results from the saved model, your test environment should be the same as our test environment.** 
-
-## Training
-
+6. **To reproduce our results from the saved model, your test environment should be the same as our test environment.**
 
 ## Inference
+
+## Training
 
 
 ## Evaluation SSIM (Structural Similarity) and FID (Fréchet Inception Distance)
