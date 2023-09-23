@@ -1,8 +1,9 @@
 ![Python 3.6](https://img.shields.io/badge/python-3.6-green.svg)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+[![GitHub Stars](https://img.shields.io/github/stars/du-chenghu/USC-PFN?style=social)](https://github.com/du-chenghu/USC-PFN)
 <div align="center">
 
-<h1>Greatness in Simplicity: Unified Self-cycle Consistency for Parser-free Virtual Try-on, NeurIPS 2023</h1>
+<h1>Greatness in Simplicity: Unified Self-cycle Consistency for Parser-free Virtual Try-on (NeurIPS 2023)</h1>
 
 <div>
     <a href="https://github.com/du-chenghu/USC-PFN" target="_blank">Chenghu Du</a><sup>1</sup>,
@@ -29,18 +30,29 @@
 
 </div>
 
+>**Abstract**: <br>
+> The pursuit of an efficient lifestyle has been stimulating the development of image-based virtual try-on. However, generating high-quality virtual try-on images remains challenging due to the inherent difficulties such as modeling non-rigid garment deformation and unpaired garment-person images. Recent groundbreaking formulations, including in-painting, cycle consistency, and in-painting-based knowledge distillation, have enabled self-supervised generation of try-on images. Nevertheless, these methods require disentangling different garment domains in the try-on result distribution via an assistance of "teacher knowledge" or dual generators. Due to the possible existence of irresponsible prior knowledge in the pretext task, such multi-model cross-domain pipelines may act as a significant bottleneck of main generator (e.g., "student model," CNN_2 of DCTON) in downstream task, leading to reduced try-on quality. Additionally, current garment deformation methods are unable to mimic the natural interaction between the garment and the human body in the real world, resulting in unrealistic alignment effects. To tackle these limitations, we present a new Unified Self-Cycle Consistency for Parser-Free virtual try-on Network (USC-PFN), which enables the robust translation between different garment domains using only a single generator and realistically mimics the non-rigid geometric deformation of garments in the real world. Specifically, we first propose a self-cycle consistency architecture with a round mode that uses only unpaired garment-person images as inputs for virtual try-on, which effectively shakes off irresponsible prior knowledge. Markov Random Field is first formulated for more natural and realistic garment deformation. Moreover, USC-PFN can employ general generator for self-supervised cycle training. Experiments demonstrate that our method achieves SOTA performance on a popular virtual try-on benchmark. 
+---
+## Citation
+If our code is helpful to your work, please cite:
+```bibtex
+@article{du2023greatness,
+  title={Greatness in Simplicity: Unified Self-cycle Consistency for Parser-free Virtual Try-on},
+  author={Du, Chenghu and Wang, Junyin and Liu, Shuqing and Xiong, Shengwu},
+  journal={Advances in Neural Information Processing Systems},
+  publisher={Curran Associates, Inc.}
+  pages={1--12},
+  year={2023}
+}
+```
 ---
 ## Todo
-- [x] Release the ground truth of the garment parsing and human parsing for two public benchmarks (VITON-HD and DressesCode) used in the paper
-- [x] Release the the pretrained model and the inference script for VITON-HD dataset.
-- [x] Release the the pretrained model and the inference script for DressCode dataset.
-- [x] Release the training script for VITON-HD dataset.
-- [x] Release the training script for DressCode dataset.
+- [ ] Release the ground truth of the garment parsing and human parsing for two public benchmarks (VITON-HD and DressesCode) used in the paper
+- [ ] Release the pretrained model and the inference script for VITON dataset.
+- [ ] Release the training script for VITON dataset.
 - [x] Release the training/testing scripts for 1024-resolution on VITON-HD and DressCode datasets.
 ---
 **The `test code` has been released, the `training code` will be released after the paper has been accepted.**
-
-The pursuit of an efficient lifestyle has been stimulating the development of image-based virtual try-on. However, generating high-quality virtual try-on images remains challenging due to the inherent difficulties such as modeling non-rigid garment deformation and unpaired garment-person images. Recent groundbreaking formulations, including in-painting, cycle consistency, and in-painting-based knowledge distillation, have enabled self-supervised generation of try-on images. Nevertheless, these methods require disentangling different garment domains in the try-on result distribution via an assistance of "teacher knowledge" or dual generators. Due to the possible existence of irresponsible prior knowledge in the pretext task, such multi-model cross-domain pipelines may act as a significant bottleneck of main generator (e.g., "student model," CNN_2 of DCTON) in downstream task, leading to reduced try-on quality. Additionally, current garment deformation methods are unable to mimic the natural interaction between the garment and the human body in the real world, resulting in unrealistic alignment effects. To tackle these limitations, we present a new Unified Self-Cycle Consistency for Parser-Free virtual try-on Network (USC-PFN), which enables the robust translation between different garment domains using only a single generator and realistically mimics the non-rigid geometric deformation of garments in the real world. Specifically, we first propose a self-cycle consistency architecture with a round mode that uses only unpaired garment-person images as inputs for virtual try-on, which effectively shakes off irresponsible prior knowledge. Markov Random Field is first formulated for more natural and realistic garment deformation. Moreover, USC-PFN can employ general generator for self-supervised cycle training. Experiments demonstrate that our method achieves SOTA performance on a popular virtual try-on benchmark. 
 
 [[Paper]](https://arxiv.org/abs/)       [[Supplementary Material]](https://github.com/)
 
@@ -66,13 +78,12 @@ The pursuit of an efficient lifestyle has been stimulating the development of im
  
 - python 3.6
 
-1 tesla V100 GPU for training; 1 tesla V100 GPU for test
-
+1 tesla V100 GPU for training and test.
 
 ## Installation
-`conda create -n sccn python=3.6`
+`conda create -n uscpfn python=3.6`
 
-`source activate sccn     or     conda activate sccn`
+`source activate uscpfn     or     conda activate uscpfn`
 
 `conda install pytorch=1.6.0 torchvision=0.7.0 cudatoolkit=11.7 -c pytorch`
 
@@ -80,9 +91,14 @@ The pursuit of an efficient lifestyle has been stimulating the development of im
 
 `pip install opencv-python`
 
-`git clone https://github.com/anony-conf/USC-PFN.git`
+`git clone https://github.com/du-chenghu/USC-PFN.git`
 
-## Inference
+## Dataset
+- [VITON](https://github.com/xthan/VITON) contains a training set of 14,221 image pairs and a test set of 2,032 image pairs, each of which has a front-view woman photo and a top clothing image with the resolution 256 x 192. Our saved model is trained on the VITON training set and tested on the VITON test set.
+
+- To train from scratch on VITON training set, you can download [VITON_train](https://drive.google.com/file/d/1Uc0DTTkSfCPXDhd4CMx2TQlzlC6bDolK/view?usp=sharing).
+
+- To test our saved model on the complete VITON test set, you can download [VITON_test](https://drive.google.com/file/d/1Y7uV0gomwWyxCvvH8TIbY7D9cTAUy6om/view?usp=sharing).
 
 ## Run the demo
 1. cd USC-PFN
@@ -90,16 +106,13 @@ The pursuit of an efficient lifestyle has been stimulating the development of im
 3. The "dataset" folder contains the demo images for test, where the "test_img" folder contains the person images, the "test_clothes" folder contains the clothes images, and the "test_edge" folder contains edges extracted from the clothes images with the built-in function in python (We saved the extracted edges from the clothes images for convenience). 'demo.txt' records the test pairs. 
 4. During test, a person image, a clothes image and its extracted edge are fed into the network to generate the try-on image. **No human parsing results or human pose estimation results are needed for test.**
 5. To test with the saved model, run **test.sh** and the results will be saved in the folder "results".
-6. **To reproduce our results from the saved model, your test environment should be the same as our test environment, especifically for the version of cupy.** 
+6. **To reproduce our results from the saved model, your test environment should be the same as our test environment.** 
 
-![image](https://github.com/anony-conf/USC-PFN/blob/main/figures/results.jpg?raw=true)
+## Training
 
-## Dataset
-1. [VITON](https://github.com/xthan/VITON) contains a training set of 14,221 image pairs and a test set of 2,032 image pairs, each of which has a front-view woman photo and a top clothing image with the resolution 256 x 192. Our saved model is trained on the VITON training set and tested on the VITON test set.
-2. To train from scratch on VITON training set, you can download [VITON_train](https://drive.google.com/file/d/1Uc0DTTkSfCPXDhd4CMx2TQlzlC6bDolK/view?usp=sharing).
-3. To test our saved model on the complete VITON test set, you can download [VITON_test](https://drive.google.com/file/d/1Y7uV0gomwWyxCvvH8TIbY7D9cTAUy6om/view?usp=sharing).
 
 ## Inference
+
 
 ## Evaluation SSIM (Structural Similarity) and FID (Fréchet Inception Distance)
 
@@ -120,20 +133,6 @@ The results for computing SSIM is **same-clothes reconstructed results** (paired
 
 ## Acknowledgement
 Our code is based on the official implementation of [[PF-AFN](https://github.com/geyuying/PF-AFN)] and the unofficial implementation of [[SieveNet](https://github.com/levindabhi/SieveNet)]. If you use our code, please also cite their work as below.
-
-
-## Citation
-If our code is helpful to your work, please cite:
-```bibtex
-@article{du2023greatness,
-  title={Greatness in Simplicity: Unified Self-cycle Consistency for Parser-free Virtual Try-on},
-  author={Du, Chenghu and Wang, Junyin and Liu, Shuqing and Xiong, Shengwu},
-  journal={Advances in Neural Information Processing Systems},
-  publisher={Curran Associates, Inc.}
-  pages={1--12},
-  year={2023}
-}
-```
 
 ## License
 The use of this code is RESTRICTED to non-commercial research and educational purposes.
