@@ -1,12 +1,44 @@
-# Greatness in Simplicity: Unified Self-cycle Consistency for Parser-free Virtual Try-on, NeurIPS 2023
-**Official code for paper "[Greatness in Simplicity: Unified Self-cycle Consistency for Parser-free Virtual Try-on](https://arxiv.org/abs/)"**
-
 ![Python 3.6](https://img.shields.io/badge/python-3.6-green.svg)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+<div align="center">
 
+<h1>Greatness in Simplicity: Unified Self-cycle Consistency for Parser-free Virtual Try-on, NeurIPS 2023</h1>
+
+<div>
+    <a href="https://github.com/du-chenghu/USC-PFN" target="_blank">Chenghu Du</a><sup>1</sup>,
+    <a href="https://github.com/du-chenghu/USC-PFN" target="_blank">Junyin Wang</a><sup>1</sup>,
+    <a href="https://github.com/du-chenghu/USC-PFN">Shuqing Liu</a><sup>4</sup>,
+    <a href="https://github.com/du-chenghu/USC-PFN" target="_blank">Shengwu Xiong</a><sup>1,2,3,*</sup>
+</div>
+
+<div>
+    <sup>1</sup>Wuhan University of Technology&emsp; <sup>2</sup>Sanya Science and Education Innovation Park
+</div>
+<div>
+    <sup>3</sup>Shanghai Artificial Intelligence Laboratory&emsp; <sup>4</sup>Wuhan Textile University
+</div>
+
+[Paper](https://arxiv.org/pdf/00.pdf) | [Project Page](https://github.com/du-chenghu/USC-PFN)
+</br>
+
+<strong>USC-PFN aims to transfer an in-shop garment onto a specific person.</strong>
+
+<div style="width: 100%; text-align: center; margin:auto;">
+    <img style="width:100%" src="https://github.com/anony-conf/USC-PFN/blob/main/figures/compare.jpg?raw=true">
+</div>
+
+</div>
+
+---
+## Todo
+- [x] Release the ground truth of the garment parsing and human parsing for two public benchmarks (VITON-HD and DressesCode) used in the paper
+- [x] Release the the pretrained model and the inference script for VITON-HD dataset.
+- [x] Release the the pretrained model and the inference script for DressCode dataset.
+- [x] Release the training script for VITON-HD dataset.
+- [x] Release the training script for DressCode dataset.
+- [x] Release the training/testing scripts for 1024-resolution on VITON-HD and DressCode datasets.
+---
 **The `test code` has been released, the `training code` will be released after the paper has been accepted.**
-
-![image](https://github.com/anony-conf/USC-PFN/blob/main/figures/compare.jpg?raw=true)
 
 The pursuit of an efficient lifestyle has been stimulating the development of image-based virtual try-on. However, generating high-quality virtual try-on images remains challenging due to the inherent difficulties such as modeling non-rigid garment deformation and unpaired garment-person images. Recent groundbreaking formulations, including in-painting, cycle consistency, and in-painting-based knowledge distillation, have enabled self-supervised generation of try-on images. Nevertheless, these methods require disentangling different garment domains in the try-on result distribution via an assistance of "teacher knowledge" or dual generators. Due to the possible existence of irresponsible prior knowledge in the pretext task, such multi-model cross-domain pipelines may act as a significant bottleneck of main generator (e.g., "student model," CNN_2 of DCTON) in downstream task, leading to reduced try-on quality. Additionally, current garment deformation methods are unable to mimic the natural interaction between the garment and the human body in the real world, resulting in unrealistic alignment effects. To tackle these limitations, we present a new Unified Self-Cycle Consistency for Parser-Free virtual try-on Network (USC-PFN), which enables the robust translation between different garment domains using only a single generator and realistically mimics the non-rigid geometric deformation of garments in the real world. Specifically, we first propose a self-cycle consistency architecture with a round mode that uses only unpaired garment-person images as inputs for virtual try-on, which effectively shakes off irresponsible prior knowledge. Markov Random Field is first formulated for more natural and realistic garment deformation. Moreover, USC-PFN can employ general generator for self-supervised cycle training. Experiments demonstrate that our method achieves SOTA performance on a popular virtual try-on benchmark. 
 
@@ -92,7 +124,7 @@ Our code is based on the official implementation of [[PF-AFN](https://github.com
 
 ## Citation
 If our code is helpful to your work, please cite:
-```
+```bibtex
 @article{du2023greatness,
   title={Greatness in Simplicity: Unified Self-cycle Consistency for Parser-free Virtual Try-on},
   author={Du, Chenghu and Wang, Junyin and Liu, Shuqing and Xiong, Shengwu},
@@ -103,22 +135,5 @@ If our code is helpful to your work, please cite:
 }
 ```
 
-```
-@inproceedings{ge2021parser,
-  title={Parser-free virtual try-on via distilling appearance flows},
-  author={Ge, Yuying and Song, Yibing and Zhang, Ruimao and Ge, Chongjian and Liu, Wei and Luo, Ping},
-  booktitle={Proceedings of the IEEE/CVF conference on computer vision and pattern recognition},
-  pages={8485--8493},
-  year={2021}
-}
-
-@inproceedings{jandial2020sievenet,
-  title={Sievenet: A unified framework for robust image-based virtual try-on},
-  author={Jandial, Surgan and Chopra, Ayush and Ayush, Kumar and Hemani, Mayur and Krishnamurthy, Balaji and Halwai, Abhijeet},
-  booktitle={Proceedings of the IEEE/CVF winter conference on applications of computer vision},
-  pages={2182--2190},
-  year={2020}
-}
-```
 ## License
 The use of this code is RESTRICTED to non-commercial research and educational purposes.
