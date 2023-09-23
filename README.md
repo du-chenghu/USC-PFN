@@ -106,7 +106,7 @@ If our code is helpful to your work, please cite:
 ## Training
 
 
-## Evaluation SSIM (Structural Similarity) and FID (Fréchet Inception Distance)
+## Evaluation - SSIM (Structural Similarity) and FID (Fréchet Inception Distance)
 
 The results for computing SSIM is **same-clothes reconstructed results** (paired setting), FID is **different-clothes reconstructed results** (unpaired setting). 
 
