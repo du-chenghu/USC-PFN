@@ -30,6 +30,8 @@
 
 </div>
 
+---
+
 >**Abstract**: <br>
 > The pursuit of an efficient lifestyle has been stimulating the development of image-based virtual try-on. However, generating high-quality virtual try-on images remains challenging due to the inherent difficulties such as modeling non-rigid garment deformation and unpaired garment-person images. Recent groundbreaking formulations, including in-painting, cycle consistency, and in-painting-based knowledge distillation, have enabled self-supervised generation of try-on images. Nevertheless, these methods require disentangling different garment domains in the try-on result distribution via an assistance of "teacher knowledge" or dual generators. Due to the possible existence of irresponsible prior knowledge in the pretext task, such multi-model cross-domain pipelines may act as a significant bottleneck of main generator (e.g., "student model," CNN_2 of DCTON) in downstream task, leading to reduced try-on quality. Additionally, current garment deformation methods are unable to mimic the natural interaction between the garment and the human body in the real world, resulting in unrealistic alignment effects. To tackle these limitations, we present a new Unified Self-Cycle Consistency for Parser-Free virtual try-on Network (USC-PFN), which enables the robust translation between different garment domains using only a single generator and realistically mimics the non-rigid geometric deformation of garments in the real world. Specifically, we first propose a self-cycle consistency architecture with a round mode that uses only unpaired garment-person images as inputs for virtual try-on, which effectively shakes off irresponsible prior knowledge. Markov Random Field is first formulated for more natural and realistic garment deformation. Moreover, USC-PFN can employ general generator for self-supervised cycle training. Experiments demonstrate that our method achieves SOTA performance on a popular virtual try-on benchmark. 
 ---
@@ -47,10 +49,10 @@ If our code is helpful to your work, please cite:
 ---
 ## Todo
 **The `test code` has been released, the `training code` will be released soon.**
-- [ ] Release the ground truth of the garment parsing and human parsing for two public benchmarks (VITON-HD and DressesCode) used in the paper
-- [ ] Release the pretrained model and the inference script for VITON dataset.
+
 - [ ] Release the training script for VITON dataset.
-- [x] Release the training/testing scripts for 1024-resolution on VITON-HD and DressCode datasets.
+- [ ] Release the pretrained model and the inference script for VITON dataset.
+- [x] [2023-9-23] Release the testing scripts for VITON dataset.
 ---
 
 ## Our Environment
