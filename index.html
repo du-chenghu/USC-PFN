@@ -1,25 +1,238 @@
-<div align="center">
 
-<h1>Greatness in Simplicity: Unified Self-cycle Consistency for Parser-free Virtual Try-on (NeurIPS 2023)</h1>
+<!DOCTYPE html>
+<html>
 
-<div>
-    <a href="https://github.com/du-chenghu/USC-PFN" target="_blank">Chenghu Du</a><sup>1</sup>,
-    <a href="https://github.com/du-chenghu/USC-PFN" target="_blank">Junyin Wang</a><sup>1</sup>,
-    <a href="https://github.com/du-chenghu/USC-PFN" target="_blank">Shuqing Liu</a><sup>4</sup>,
-    <a href="https://github.com/du-chenghu/USC-PFN" target="_blank">Shengwu Xiong</a><sup>1,2,3,*</sup>
-</div>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="ClothFormer: Taiming Video Virtual Try-on in All Module">
+  <meta name="keywords" content="clothformer, video virtual tryon, try-on">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ClothFormer: Taiming Video Virtual Try-on in All Module</title>
+  <script>
+    window.dataLayer = window.dataLayer || [];
 
-<div>
-    <sup>1</sup>Wuhan University of Technology&emsp; <sup>2</sup>Sanya Science and Education Innovation Park
-</div>
-<div>
-    <sup>3</sup>Shanghai AI Laboratory&emsp; <sup>4</sup>Wuhan Textile University
-</div>
+    function gtag() {
+      dataLayer.push(arguments);
+    }
 
-[Paper](https://arxiv.org/pdf/00.pdf) | [Supplementary Material](https://arxiv.org/pdf/00.pdf)
-</br>
+    gtag('js', new Date());
 
-<strong>USC-PFN aims to transfer an in-shop garment onto a specific person.</strong>
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <!-- <link rel="icon" href="./static/images/favicon.svg"> -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>        
+    
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+  });
+  
+  
+  </script>
+</head>
+
+<body>
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">ClothFormer: Taming Video Virtual Try-on in All Module</h1>
+            <h1 class="title is-4 publication-title">🔥(CVPR 2022 Oral)🔥</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                Jianbin Jiang</a>,</span>
+              <span class="author-block">
+                Tan Wang</a>,</span>
+              <span class="author-block">
+                He Yan</a>,
+              </span>
+              <span class="author-block">
+                Junhui Liu</a>,
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">iQIYI Inc.</span>
+            </div>
 
 
-</div>
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF Link. -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/pdf/2204.12151.pdf"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+    </div>
+  </section>
+
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              The task of video virtual try-on aims to fit the target clothes to a person in the video with
+              spatio-temporal consistency. Despite tremendous progress of image virtual try-on, they lead to
+              inconsistency between frames when applied to videos. Limited work also explored the task of video-based
+              virtual try-on but failed to produce visually pleasing and temporally coherent results. Moreover, there
+              are two other key challenges: 1) how to generate accurate warping when occlusions appear in the clothing
+              region; 2) how to generate clothes and non-target body parts (e.g. arms, neck) in harmony with the
+              complicated background; To address them, we propose a novel video virtual try-on framework, ClothFormer,
+              which successfully synthesizes realistic, harmonious, and spatio-temporal consistent results in
+              complicated environment. In particular, ClothFormer involves three major modules. First, a two-stage
+              anti-occlusion warping module that predicts an accurate dense flow mapping between the body regions and
+              the clothing regions. Second, an appearance-flow tracking module utilizes ridge regression and optical
+              flow correction to smooth the dense flow sequence and generate a temporally smooth warped clothing
+              sequence. Third, a dual-stream transformer extracts and fuses clothing textures, person features, and
+              environment information to generate realistic try-on videos. Through rigorous experiments, we demonstrate
+              that our method highly surpasses the baselines in terms of synthesized video quality both qualitatively
+              and quantitatively.
+            </p>
+          </div>
+        </div>
+      </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full">
+          <h2 class="title is-3">Framework</h2>
+          <div class="content has-text-justified">
+
+            <div class="hero-body">
+              <img src="./Example/overview_ClothFormer.png" class="interpolation-image"
+                alt="Interpolate start reference image.">
+            </div>
+            <!-- <p>
+              (a) First, we obtain clothing-agnostic person image sequences. (b) We predict t warped clothes
+              by TPS-based warp method to infer an anti-occlusion target clothes, then
+              appearance-flow-based warp method is adopted to get an appearance flow. (c) Appearance-flow tracking
+              module based on ridge regression and optical flow correction is designed to get warped clothing sequence
+              with spatio-temporally consistent. (d) Finally, MPDT generator synthesizes the final output video sequence
+              based on the outputs from the previous stages.
+            </p> -->
+
+            <p>
+              (a) First, we obtain clothing-agnostic person image sequences $A_{1}^{T}$. (b) We predict $t$ warped clothes
+              $ W(C, \theta_{t}) $ by TPS-based warp method to infer an anti-occlusion target clothes $C$, then
+              appearance-flow-based warp method is adopted to get an appearance flow $f$. (c) Appearance-flow tracking
+              module based on ridge regression and optical flow correction is designed to get warped clothing sequence
+              with spatio-temporally consistent. (d) Finally, MPDT generator synthesizes the final output video sequence
+              $\tilde{I}_{1}^{T} $ based on the outputs from the previous stages
+            </p>
+          </div>
+        </div>
+      </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+
+      <div class="column is-full-width has-text-centered container is-max-desktop">
+        <h2 class="title is-3">Results</h2>
+        <div class="content">
+          <video autoplay loop muted playinline width="100%">
+            <source src="./Example/demo_iqiyiVVT_clip1.mp4" type="video/mp4">
+          </video>
+          <video autoplay loop muted playinline width="100%">
+            <source src="./Example/demo_iqiyiVVT_clip2.mp4" type="video/mp4">
+          </video>
+          <video autoplay loop muted playinline width="100%">
+            <source src="./Example/demo_iqiyiVVT_clip3.mp4" type="video/mp4">
+          </video>
+          <h3 class="title is-4">iQIYI-VVT</h3>
+        </div>
+        <div class="content">
+          <video autoplay loop muted playinline width="100%">
+            <source src="./Example/clothformer_on_vvt.mp4" type="video/mp4">
+          </video>
+          <h3 class="title is-4">VVT</h3>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">Citation</h2>
+      <pre>
+        <code>
+@inproceedings{jiang2022clothformer,
+      title={ClothFormer: Taming Video Virtual Try-on in All Module},
+      author={Jianbin Jiang and Tan Wang and He Yan and Junhui Liu},
+      booktitle={Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
+      year={2022}
+}</code>
+    </pre>
+    </div>
+  </section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            The original template was borrowed from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies,</a>
+            licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+              Commons Attribution-ShareAlike 4.0 International License</a>.
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
