@@ -159,56 +159,44 @@
     </div>
     <!--/ Abstract. -->
 
-    
-  </div>
-</section>
-  
-<hr>
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <hr>
     <!-- Paper and Supplementary Material -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Paper and Supplementary Material</h2>
         <div class="content has-text-justified">
           <p>
-            The pursuit of an efficient lifestyle has been stimulating the development of image-based virtual try-on. However, generating high-quality virtual try-on images remains challenging due to the inherent difficulties such as modeling non-rigid garment deformation and unpaired garment-person images. Recent groundbreaking formulations, including in-painting, cycle consistency, and in-painting-based knowledge distillation, have enabled self-supervised generation of try-on images. Nevertheless, these methods require disentangling different garment domains in the try-on result distribution via an assistance of "teacher knowledge" or dual generators. Due to the possible existence of irresponsible prior knowledge in the pretext task, such multi-model cross-domain pipelines may act as a significant bottleneck of main generator (e.g., "student model," CNN_2 of DCTON) in downstream task, leading to reduced try-on quality. Additionally, current garment deformation methods are unable to mimic the natural interaction between the garment and the human body in the real world, resulting in unrealistic alignment effects. 
+            The pursuit of an efficient lifestyle 
           </p>
-          <p>
-            To tackle these limitations, we present a new Unified Self-Cycle Consistency for Parser-Free virtual try-on Network (USC-PFN), which enables the robust translation between different garment domains using only a single generator and realistically mimics the non-rigid geometric deformation of garments in the real world. Specifically, we first propose a self-cycle consistency architecture with a round mode that uses only unpaired garment-person images as inputs for virtual try-on, which effectively shakes off irresponsible prior knowledge. Markov Random Field is first formulated for more natural and realistic garment deformation. Moreover, USC-PFN can employ general generator for self-supervised cycle training. Experiments demonstrate that our method achieves SOTA performance on a popular virtual try-on benchmark.
-          </p>
+
+          <div class="row">
+            <div class="col-sm-3">
+                <img src="./figs/paper.png" class="img-fluid border" alt="" style="margin:20px;">
+            </div>
+            <div class="col" style="margin-top: auto; margin-bottom: auto;">
+                <div class="align-middle">
+                    <a href="https://arxiv.org/abs/2103.16874">[Paper]</a>
+                    <a href="https://github.com/shadow2496/VITON-HD">[Code]</a>
+                    <p class="lead">
+                        CVPR, 2021. <br>
+                        Seunghwan Choi*, Sunghyun Park*, Minsoo Lee*, Jaegul Choo. <br>
+                        "VITON-HD: High-Resolution Virtual Try-On via Misalignment-Aware Normalization"
+                    </p>
+                </div>
+            </div>
+        </div>
 
         </div>
       </div>
     </div>
     <!--/ Abstract. -->
 
-    <div class="row">
-                        <div class="col-sm-3">
-                            <img src="./figs/paper.png" class="img-fluid border" alt="" style="margin:20px;">
-                        </div>
-                        <div class="col" style="margin-top: auto; margin-bottom: auto;">
-                            <div class="align-middle">
-                                <a href="https://arxiv.org/abs/2103.16874">[Paper]</a>
-                                <a href="https://github.com/shadow2496/VITON-HD">[Code]</a>
-                                <p class="lead">
-                                    CVPR, 2021. <br>
-                                    Seunghwan Choi*, Sunghyun Park*, Minsoo Lee*, Jaegul Choo. <br>
-                                    "VITON-HD: High-Resolution Virtual Try-On via Misalignment-Aware Normalization"
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+  
+
     
   </div>
-</section>  
-
-
-
-
-
+</section>
+  
+<hr>
 
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
