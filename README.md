@@ -1,6 +1,8 @@
 ![Python 3.6](https://img.shields.io/badge/python-3.6-green.svg)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-[![GitHub Stars](https://img.shields.io/github/stars/du-chenghu/USC-PFN?style=social)](https://github.com/du-chenghu/USC-PFN)
+[![GitHub Stars](https://img.shields.io/github/stars/du-chenghu/USC-PFN?style=social)](https://github.com/du-chenghu/USC-PFN)   &nbsp;
+<img style="width:100px; float:left;" src="http://www.whut.edu.cn/images/whutlogo.png?raw=true">
+
 
 <div align="center">
 
