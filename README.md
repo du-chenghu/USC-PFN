@@ -53,10 +53,14 @@ If our code is helpful to your work, please cite:
 ## Todo
 **The `test code` has been released, the `training code` will be released soon.**
 
-- [ ] [2023-00-00] Release the training script for VITON dataset.
-- [ ] [2023-00-00] Release the pretrained model for VITON dataset.
-- [x] [2023-09-23] Release the testing scripts for VITON dataset.
+- [ ] [2023-00-00] Release the **training script** for VITON dataset.
+- [ ] [2023-00-00] Release the **pretrained model** for VITON dataset.
+- [x] [2023-09-27] Release the **testing result** for VITON dataset.
+- [x] [2023-09-23] Release the **testing script** for VITON dataset.
 ---
+
+## Quick Access Results
+The test pair and test results on VITON dataset are shown <a href="https://drive.google.com/file/d/1qxDdvBKIQisxxu2pYky5dkKEufj_bV_v/view?usp=sharing">this</a> and <a href="https://drive.google.com/file/d/1yYvBoTUqwQjllS9XELoDQFuqZXdgqzL3/view?usp=sharing">here</a>, from left to right are reference person, target clothes, try-on results of five baseline methods including **CP-VITON+ (CVPRW 2020), ACGPN (CVPR 2020), DCTON (CVPR 2021), RT-VITON (CVPR 2022), and USC-PFN.**
 
 ## Our Environment
 - anaconda3
@@ -73,7 +77,6 @@ If our code is helpful to your work, please cite:
  
 - python 3.6
 
-1 tesla V100 GPU for training and test.
 
 ## Installation
 `conda create -n uscpfn python=3.6`
@@ -97,24 +100,28 @@ If our code is helpful to your work, please cite:
 
 - To test our saved model on the complete VITON test set, you can download [VITON_test](https://drive.google.com/file/d/1Y7uV0gomwWyxCvvH8TIbY7D9cTAUy6om/view?usp=sharing).
 
-## Run the demo
-[[Checkpoints for Test]](https://drive.google.com)
-1. cd USC-PFN
-2. First, you need to download the checkpoints from [checkpoints](https://drive.google.com/file/d/1_a0AiN8Y_d_9TNDhHIcRlERz3zptyYWV/view?usp=sharing) and put the folder "USC-PFN" under the folder "checkpoints". The folder "checkpoints/USC-PFN" shold contain "warp_model_final.pth" and "gen_model_final.pth". 
-3. The "dataset" folder contains the demo images for test, where the "test_img" folder contains the person images, the "test_clothes" folder contains the clothes images, and the "test_edge" folder contains edges extracted from the clothes images with the built-in function in python (We saved the extracted edges from the clothes images for convenience). 'demo.txt' records the test pairs. 
-4. During test, a person image, a clothes image and its extracted edge are fed into the network to generate the try-on image. **No human parsing results or human pose estimation results are needed for test.**
-5. To test with the saved model, run **test.sh** and the results will be saved in the folder "results".
-6. **To reproduce our results from the saved model, your test environment should be the same as our test environment.**
-
 ## Inference
-To generate virtual try-on images, run:
+1. cd USC-PFN
+```
+cd USC-PFN-main
+```
+2. First, you need to download the [[Checkpoints for Test]](https://drive.google.com) and put these under the folder `checkpoints/`. The folder `checkpoints/` shold contain `ngd_model_final.pth` and `sig_model_final.pth`. 
+3. Please put the test set of the dataset in the `dataset/`, i.e., the `dataset/` folder should contain the `test_pairs.txt` and `test/`.
+4. To generate virtual try-on images, just run:
+```
+python test.py
+```
+5. The results will be saved in the folder `results/`.
+> During inference, only a person image and a clothes image are fed into the network to generate the try-on image. **No human parsing results or human pose estimation results are needed for inference.**
 
-    python test.py
+> **To reproduce our results from the saved model, your test environment should be the same as our test environment.**
 
-The results are saved in the ./results/ directory. You can change the location by specifying the --save_dir argument. To synthesize virtual try-on images with different pairs of a person and a clothing item, edit ./datasets/test_pairs.txt and run the same command.
+- Note that if you want to test **paired data (paired clothing-person images)**, please download the replaceable list <a href="https://drive.google.com/file/d/1yYvBoTUqwQjllS9XELoDQFuqZXdgqzL3/view?usp=sharing">here (test_pairs.txt)</a>.
 
 ## Training
-
+```
+Available soon...
+```
 
 ## Evaluation - SSIM (Structural Similarity) and FID (Fréchet Inception Distance)
 
