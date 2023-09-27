@@ -26,7 +26,7 @@
 <strong>USC-PFN aims to transfer an in-shop garment onto a specific person.</strong>
 
 <div style="width: 100%; text-align: center; margin:auto;">
-    <img style="width:100%" src="https://github.com/anony-conf/USC-PFN/blob/main/figures/compare.jpg?raw=true">
+    <img style="width:100%" src="./imgs/head.gif?raw=true">
 </div>
 
 </div>
