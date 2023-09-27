@@ -7,7 +7,7 @@ from tqdm import tqdm
 from utils.visualization import load_checkpoint, save_images
 from data.data_reader import DGDataset, DGDataLoader
 from config import parser
-from models.networks import ResUnetGenerator
+from models.networks import NGD, SIG
 from utils.flow_util import flow2color
 from utils.losses import flow_warping
 torch.set_printoptions(profile="full")
@@ -15,7 +15,7 @@ warnings.filterwarnings("ignore")
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-def testGen(opt, test_loader, model):
+def funcTryOn(opt, test_loader, model):
     print('----Testing of module {} started----'.format(opt.name))
     model.to(device)
     model.eval()
@@ -24,8 +24,9 @@ def testGen(opt, test_loader, model):
     step = 0
     pbar = tqdm(total=length)
     
-    MRF = ResUnetGenerator(6, 2)
-    load_checkpoint(MRF, osp.join(opt.checkpoint_dir, 'CWN', 'epoch_%03d.pth' % (200)))
+    MRF = NGD(6, 2)
+    NGDPath = osp.join(opt.checkpoint_dir, 'NGD', 'epoch_%03d.pth' % (200))
+    load_checkpoint(MRF, NGDPath)
     MRF.to(device)
     MRF.eval()
     
@@ -36,7 +37,7 @@ def testGen(opt, test_loader, model):
         # ++++++++++++++++++++++++++++++++++++++++
         with torch.no_grad():
             MRF_flow = MRF(torch.cat([c, im], 1))
-            warped_cloth,_ , = flow_warping(c, MRF_flow)
+            warped_cloth, _ , = flow_warping(c, MRF_flow)
             p_tryon = torch.tanh(model(torch.cat([im, warped_cloth], 1)))
             
         a = im
@@ -67,12 +68,9 @@ def de_offset(s_grid):
     grid = grid.unsqueeze(0).expand(b, -1, -1, -1)
 
     offset = grid - s_grid
-
     offset_x = offset[:,0,:,:] * (w-1) / 2
     offset_y = offset[:,1,:,:] * (h-1) / 2
-
     offset = torch.cat((offset_y,offset_x),0)
-    
     return  offset
 
 def main():
@@ -80,10 +78,10 @@ def main():
     test_dataset = DGDataset(opt)
     # create dataloader
     test_loader = DGDataLoader(opt, test_dataset)
-    model = ResUnetGenerator(6, 3)
-    checkpoint_path = osp.join(opt.checkpoint_dir, 'TSM', 'epoch_%03d.pth' % (170))
+    model = SIG(6, 3)
+    checkpoint_path = osp.join(opt.checkpoint_dir, 'SIG', 'epoch_%03d.pth' % (170))
     load_checkpoint(model, checkpoint_path)
-    testGen(opt, test_loader, model)
+    funcTryOn(opt, test_loader, model)
 
 if __name__ == '__main__':
     main()
