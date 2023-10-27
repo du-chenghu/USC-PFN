@@ -150,16 +150,18 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
+          
           <p>
-            Currently, generating high-quality virtual try-on images remains challenging due to inherent difficulties in <b>modeling non-rigid garment deformation</b> and <b>unpaired garment-person images</b>. 
+            Image-based virtual try-on tasks remain challenging, primarily due to inherent complexities associated with <b>non-rigid garment deformation modeling</b> and <b>strong feature entanglement of clothing within human body</b>. 
           </p>
           <p>
-            Recent groundbreaking formulations, including <b>in-painting</b>, <b>cycle consistency</b>, and <b>knowledge distillation</b>, have enabled a self-supervised generation of try-on images. Nevertheless, these paradigms require disentangling different garment features in the try-on result distribution via the assistance pretext task such as "teacher knowledge" and dual generators.
-          </p>
-          <p>Due to the possible existence of irresponsible a-priori knowledge in the pretext task, it may act as a significant bottleneck of a main generator (e.g., "student model") in the downstream task. Additionally, current garment deformation methods are unable to perceive the correlation between the garment and the human body in the real world, resulting in unrealistic alignment effects. 
+            Recent groundbreaking formulations, such as <b>in-painting</b>b>, <b>cycle consistency</b>b>, and <b>knowledge distillation</b>b>, have facilitated self-supervised generation of try-on images. However, these paradigms necessitate the disentanglement of garment features within human body features through auxiliary tasks, such as leveraging 'teacher knowledge' and dual generators.
           </p>
           <p>
-            To tackle these limitations, we present a new <b>Unified Self-Cycle Consistency for Parser-Free virtual try-on Network (USC-PFN)</b>, which enables the robust translation between various garments using only a single generator and realistically mimics non-rigid geometric deformation of garments in real-life scenarios. Specifically, we first propose a self-cycle consistency architecture with a round mode that uses only unpaired garment-person images as input for try-on synthesis, which effectively shakes off irresponsible a-priori knowledge. Then, Markov Random Field is first formulated to mimic a more natural and realistic garment deformation. Moreover, USC-PFN can employ a general generator for self-supervised cycle training.
+            The potential presence of irresponsible prior knowledge in the auxiliary task can serve as a significant bottleneck for the main generator (e.g., 'student model') in the downstream task. Moreover, existing garment deformation methods lack the ability to perceive the correlation between the garment and the human body in the real world, leading to unrealistic alignment effects. 
+          </p>
+          <p>
+            To tackle these limitations, we present a new network for parser-free virtual try-on called unified self-cycle consistency (<b>USC-PFN<\b>), which enables robust translation between different garments using just a single generator, faithfully replicating non-rigid geometric deformation of garments in real-life scenarios. Specifically, we first propose a self-cycle consistency architecture with a circular mode. It utilizes real unpaired garment-person images exclusively as input for training, effectively eliminating the impact of irresponsible prior knowledge at the model input end. Additionally, we formulate a Markov Random Field to simulate a more natural and realistic garment deformation. Furthermore, USC-PFN can leverage a general generator for self-supervised cycle training. Experiments demonstrate that our method achieves state-of-the-art performance on a popular virtual try-on benchmark.
           </p>
         </div>
       </div>
