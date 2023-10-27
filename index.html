@@ -101,7 +101,7 @@
               </span>
               <!-- Code Link. -->
               <span class="link-block">
-                <a href="https://github.com/"
+                <a href="https://github.com/du-chenghu/USC-PFN/"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
@@ -155,13 +155,16 @@
             Image-based virtual try-on tasks remain challenging, primarily due to inherent complexities associated with <b>non-rigid garment deformation modeling</b> and <b>strong feature entanglement of clothing within human body</b>. 
           </p>
           <p>
-            Recent groundbreaking formulations, such as <b>in-painting</b>b>, <b>cycle consistency</b>b>, and <b>knowledge distillation</b>b>, have facilitated self-supervised generation of try-on images. However, these paradigms necessitate the disentanglement of garment features within human body features through auxiliary tasks, such as leveraging 'teacher knowledge' and dual generators.
+            Recent groundbreaking formulations, such as <b>in-painting</b>, <b>cycle consistency</b>, and <b>knowledge distillation</b>, have facilitated self-supervised generation of try-on images. However, these paradigms necessitate the disentanglement of garment features within human body features through auxiliary tasks, such as leveraging 'teacher knowledge' and dual generators.
           </p>
           <p>
             The potential presence of irresponsible prior knowledge in the auxiliary task can serve as a significant bottleneck for the main generator (e.g., 'student model') in the downstream task. Moreover, existing garment deformation methods lack the ability to perceive the correlation between the garment and the human body in the real world, leading to unrealistic alignment effects. 
           </p>
           <p>
-            To tackle these limitations, we present a new network for parser-free virtual try-on called unified self-cycle consistency (<b>USC-PFN<\b>), which enables robust translation between different garments using just a single generator, faithfully replicating non-rigid geometric deformation of garments in real-life scenarios. Specifically, we first propose a self-cycle consistency architecture with a circular mode. It utilizes real unpaired garment-person images exclusively as input for training, effectively eliminating the impact of irresponsible prior knowledge at the model input end. Additionally, we formulate a Markov Random Field to simulate a more natural and realistic garment deformation. Furthermore, USC-PFN can leverage a general generator for self-supervised cycle training. Experiments demonstrate that our method achieves state-of-the-art performance on a popular virtual try-on benchmark.
+            To tackle these limitations, we present a new network for parser-free virtual try-on called unified self-cycle consistency (<b>USC-PFN</b>), which enables robust translation between different garments using just a single generator, faithfully replicating non-rigid geometric deformation of garments in real-life scenarios. Specifically, we first propose a self-cycle consistency architecture with a circular mode. It utilizes real unpaired garment-person images exclusively as input for training, effectively eliminating the impact of irresponsible prior knowledge at the model input end. Additionally, we formulate a Markov Random Field to simulate a more natural and realistic garment deformation. Furthermore, USC-PFN can leverage a general generator for self-supervised cycle training.
+          </p>
+          <p>
+            Experiments demonstrate that our method achieves state-of-the-art performance on a popular virtual try-on benchmark.
           </p>
         </div>
       </div>
@@ -176,11 +179,11 @@
         <!--/ MAIN -->
         <div>
           <div style="float:left;">
-              <img src="./static/paper.jpg" style="width: 220px; margin:20px; box-shadow: 7px 7px 10px 10px grey;">
+              <img src="./static/paper.png" style="width: 220px; margin:20px; box-shadow: 7px 7px 10px 10px grey;">
           </div>
           <div style="margin-top: 100px; margin-left: 35px; margin-bottom: auto; float:left;">
               <a href="https://arxiv.org/">[Paper]</a>
-              <a href="https://github.com/du-chenghu/">[Code]</a>
+              <a href="https://github.com/du-chenghu/USC-PFN/">[Code]</a>
               <p>
                   NeurIPS, 2023. <br>
                   Chenghu Du, Junyin Wang, Shuqing Liu, Shengwu Xiong*. <br>
@@ -265,7 +268,7 @@
          href="./static/">
         <i class="fas fa-file-pdf"></i>
       </a>
-      <a class="icon-link" href="https://github.com/" class="external-link" disabled>
+      <a class="icon-link" href="https://github.com/du-chenghu/USC-PFN/" class="external-link" disabled>
         <i class="fab fa-github"></i>
       </a>
     </div>
