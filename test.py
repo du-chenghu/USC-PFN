@@ -5,7 +5,7 @@ import os.path as osp
 import warnings
 from tqdm import tqdm
 from utils.visualization import load_checkpoint, save_images
-from data.data_reader import DGDataset, DGDataLoader
+from data.data_reader_infer import VITONDataset, VITONDataLoader
 from config import parser
 from models.networks import NGD, SIG
 from utils.flow_util import flow2color
@@ -32,6 +32,7 @@ def funcTryOn(opt, test_loader, model):
     
     while inputs is not None:
         im_name = inputs['im_name']
+        c_name = inputs['c_name']
         im = inputs['image'].to(device)
         c = inputs['cloth'].to(device)
         # ++++++++++++++++++++++++++++++++++++++++
@@ -48,10 +49,10 @@ def funcTryOn(opt, test_loader, model):
         d = p_tryon
         combine = torch.cat([a[0],b[0], flow_color, c[0], d[0]], 2).unsqueeze(0)
       
-        save_images(c, im_name, osp.join(opt.save_dir, opt.datamode, 'ClothImg'))
-        save_images(im, im_name, osp.join(opt.save_dir, opt.datamode, 'PersonImg'))
-        save_images(p_tryon, im_name, osp.join(opt.save_dir, opt.datamode, 'TryOnResults'))
-        save_images(combine, im_name, osp.join(opt.save_dir, opt.datamode, 'CResults'))
+        save_images(c, im_name, osp.join(opt.save_dir, opt.datamode, 'Clothes'))
+        save_images(im, im_name, osp.join(opt.save_dir, opt.datamode, 'Person'))
+        save_images(p_tryon, im_name, osp.join(opt.save_dir, opt.datamode, 'Results'))
+        save_images(combine, im_name, osp.join(opt.save_dir, opt.datamode, 'Combine'))
 
         inputs = test_loader.next_batch()
         step+=1
@@ -71,13 +72,13 @@ def de_offset(s_grid):
     offset_x = offset[:,0,:,:] * (w-1) / 2
     offset_y = offset[:,1,:,:] * (h-1) / 2
     offset = torch.cat((offset_y,offset_x),0)
-    return  offset
+    return offset
 
 def main():
     opt = parser()
-    test_dataset = DGDataset(opt)
+    test_dataset = VITONDataset(opt)
     # create dataloader
-    test_loader = DGDataLoader(opt, test_dataset)
+    test_loader = VITONDataLoader(opt, test_dataset)
     model = SIG(6, 3)
     checkpoint_path = osp.join(opt.checkpoint_dir, 'SIG', 'epoch_%03d.pth' % (170))
     load_checkpoint(model, checkpoint_path)
