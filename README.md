@@ -50,8 +50,6 @@ If our code is helpful to your work, please cite:
 ## Todo
 **The `test code` has been released, the `training code` will be released soon.**
 
-- [ ] [2023-00-00] Release the **training script** for VITON dataset.
-- [ ] [2023-00-00] Release the **pretrained model** for VITON dataset.
 - [x] [2023-09-27] Release the **testing result** for VITON dataset.
 - [x] [2023-09-23] Release the **testing script** for VITON dataset.
 ---
